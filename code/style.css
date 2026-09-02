@@ -1,0 +1,73 @@
+/* простые стили для доски объявлений, без ничего лишнего */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+h2 {
+    font-size: 18px;
+    background-color: #dddddd;
+    padding: 4px;
+}
+
+a {
+    color: #0000ee;
+}
+
+.menu-rubrik {
+    padding-left: 0;
+}
+
+.menu-rubrik li {
+    display: inline;
+    margin-right: 12px;
+    list-style: none;
+}
+
+.obyava {
+    border: 1px solid #999999;
+    padding: 6px;
+    margin-bottom: 12px;
+    width: 500px;
+}
+
+.obyava-zagolovok {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.obyava-info {
+    font-size: 12px;
+    color: #444444;
+}
+
+.knopka-podnyat {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.seroe {
+    color: gray;
+    font-size: 12px;
+}
+
+.oshibka {
+    color: red;
+}
+
+.soobshenie {
+    color: green;
+    font-weight: bold;
+}
+
+table td {
+    padding: 4px;
+}
