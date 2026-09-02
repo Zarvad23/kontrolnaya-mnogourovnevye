@@ -17,10 +17,14 @@ if (isset($_GET['rubrika'])) {
 </head>
 <body>
 
-<h1>Доска объявлений</h1>
+<div class="shapka">
+    <h1>Доска объявлений</h1>
+</div>
+
+<div class="stranica">
 
 <p>
-    <a href="dobavit.php?rubrika=<?php echo $rubrika_vybrana; ?>">+ Добавить объявление</a>
+    <a class="knopka-dobavit" href="dobavit.php?rubrika=<?php echo $rubrika_vybrana; ?>">+ Добавить объявление</a>
 </p>
 
 <?php
@@ -32,12 +36,20 @@ if (isset($_GET['soobshenie'])) {
 
 <h3>Рубрики:</h3>
 <ul class="menu-rubrik">
-    <li><a href="index.php">Все рубрики</a></li>
     <?php
+    // если рубрика не выбрана - значит вкладка "все рубрики" сейчас активна
+    $klass_vseh = ($rubrika_vybrana == 0) ? "vkladka-aktivna" : "";
+    echo "<li><a class='" . $klass_vseh . "' href='index.php'>Все рубрики</a></li>";
+
     // достаем все рубрики чтобы построить меню сверху
     $zapros_rubrik_menu = mysqli_query($soedinenie, "SELECT * FROM rubriki ORDER BY nazvanie");
     while ($odna_rubrika = mysqli_fetch_assoc($zapros_rubrik_menu)) {
-        echo "<li><a href='index.php?rubrika=" . $odna_rubrika['id'] . "'>" . htmlspecialchars($odna_rubrika['nazvanie']) . "</a></li>";
+        // если это та рубрика которую выбрали - подсвечиваем вкладку
+        $klass_vkladki = "";
+        if ($odna_rubrika['id'] == $rubrika_vybrana) {
+            $klass_vkladki = "vkladka-aktivna";
+        }
+        echo "<li><a class='" . $klass_vkladki . "' href='index.php?rubrika=" . $odna_rubrika['id'] . "'>" . htmlspecialchars($odna_rubrika['nazvanie']) . "</a></li>";
     }
     ?>
 </ul>
@@ -91,7 +103,7 @@ while ($odna_rubrika = mysqli_fetch_assoc($zapros_rubrik)) {
         }
 
         if ($mozhno_podnyat) {
-            echo "<a class='knopka-podnyat' href='podnyat.php?id=" . $obyava['id'] . "'>[ Поднять ]</a>";
+            echo "<a class='knopka-podnyat' href='podnyat.php?id=" . $obyava['id'] . "'>Поднять</a>";
         } else {
             echo "<span class='seroe'>Уже поднимали недавно, попробуйте позже</span>";
         }
@@ -100,6 +112,8 @@ while ($odna_rubrika = mysqli_fetch_assoc($zapros_rubrik)) {
     }
 }
 ?>
+
+</div>
 
 </body>
 </html>

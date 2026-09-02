@@ -1,47 +1,113 @@
-/* простые стили для доски объявлений, без ничего лишнего */
+/* стили для доски объявлений */
+/* тут по-прежнему все просто, без фреймворков, просто чуть добавили цвета */
 
 body {
     font-family: Arial, sans-serif;
     font-size: 14px;
-    margin: 20px;
-    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background-color: #d9d9d9;
     color: #000000;
 }
 
-h1 {
-    font-size: 22px;
+/* шапка сайта - просто сплошной цвет и белый заголовок */
+.shapka {
+    background-color: #1b3b6f;
+    padding: 14px 20px 16px 20px;
+}
+
+.shapka h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+/* основной блок страницы - ограничиваем по ширине и по центру */
+.stranica {
+    max-width: 860px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 16px 18px 22px 18px;
+    border: 1px solid #bbbbbb;
+    border-top: none;
 }
 
 h2 {
     font-size: 18px;
-    background-color: #dddddd;
-    padding: 4px;
+    background-color: #e2e2e2;
+    padding: 5px 8px;
+    border-left: 4px solid #1b3b6f;
 }
 
 a {
-    color: #0000ee;
+    color: #1b3b6f;
 }
 
+/* кнопка "добавить объявление" */
+.knopka-dobavit {
+    display: inline-block;
+    background-color: #1b3b6f;
+    color: #ffffff !important;
+    padding: 7px 15px;
+    border: 1px solid #14294d;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.knopka-dobavit:hover {
+    background-color: #2a5090;
+}
+
+/* меню рубрик оформляем как вкладки */
 .menu-rubrik {
     padding-left: 0;
+    margin: 14px 0 10px 0;
 }
 
 .menu-rubrik li {
     display: inline;
-    margin-right: 12px;
+    margin-right: 6px;
     list-style: none;
 }
 
-.obyava {
+.menu-rubrik a {
+    display: inline-block;
+    padding: 6px 13px;
+    background-color: #eeeeee;
     border: 1px solid #999999;
-    padding: 6px;
-    margin-bottom: 12px;
-    width: 500px;
+    border-radius: 3px;
+    color: #333333;
+    text-decoration: none;
+    margin-bottom: 6px;
+}
+
+.menu-rubrik a:hover {
+    background-color: #cfcfcf;
+}
+
+/* активная (выбранная сейчас) рубрика в меню */
+/* тут пишем селектор поточнее, а то она перебивалась стилем .menu-rubrik a выше */
+.menu-rubrik a.vkladka-aktivna, .menu-rubrik a.vkladka-aktivna:hover {
+    background-color: #1b3b6f;
+    color: #ffffff;
+    border-color: #14294d;
+}
+
+/* блок одного объявления */
+.obyava {
+    background-color: #fdf8df;
+    border: 1px solid #c9c2a0;
+    padding: 8px 10px;
+    margin-bottom: 13px;
+    width: 480px;
 }
 
 .obyava-zagolovok {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
+    color: #1b3b6f;
+    margin-bottom: 3px;
 }
 
 .obyava-info {
@@ -49,25 +115,72 @@ a {
     color: #444444;
 }
 
+/* кнопка "поднять" - тоже сделали как настоящую кнопку */
 .knopka-podnyat {
     display: inline-block;
-    margin-top: 5px;
+    margin-top: 7px;
+    padding: 4px 12px;
+    background-color: #ffffff;
+    border: 1px solid #1b3b6f;
+    border-radius: 3px;
+    color: #1b3b6f;
+    text-decoration: none;
 }
 
+.knopka-podnyat:hover {
+    background-color: #1b3b6f;
+    color: #ffffff;
+}
+
+/* серая надпись когда поднимать еще нельзя - тоже в виде "кнопки", но неактивной */
 .seroe {
-    color: gray;
+    display: inline-block;
+    margin-top: 7px;
+    padding: 4px 12px;
+    background-color: #eeeeee;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+    color: #888888;
     font-size: 12px;
 }
 
 .oshibka {
-    color: red;
-}
-
-.soobshenie {
-    color: green;
+    color: #a00000;
     font-weight: bold;
 }
 
-table td {
-    padding: 4px;
+.soobshenie {
+    color: #216b21;
+    font-weight: bold;
+}
+
+/* форма добавления объявления */
+.forma-dobavit td {
+    padding: 6px 8px 7px 0;
+    vertical-align: top;
+}
+
+.forma-dobavit input[type="text"],
+.forma-dobavit textarea,
+.forma-dobavit select {
+    width: 320px;
+    padding: 5px;
+    border: 1px solid #999999;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.forma-dobavit input[type="submit"] {
+    padding: 8px 20px;
+    background-color: #1b3b6f;
+    color: #ffffff;
+    border: 1px solid #14294d;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.forma-dobavit input[type="submit"]:hover {
+    background-color: #2a5090;
 }

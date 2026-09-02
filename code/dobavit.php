@@ -53,7 +53,11 @@ $zapros_rubrik = mysqli_query($soedinenie, "SELECT * FROM rubriki ORDER BY nazva
 </head>
 <body>
 
-<h1>Добавить объявление</h1>
+<div class="shapka">
+    <h1>Добавить объявление</h1>
+</div>
+
+<div class="stranica">
 
 <p><a href="index.php">&laquo; Назад на главную</a></p>
 
@@ -61,7 +65,7 @@ $zapros_rubrik = mysqli_query($soedinenie, "SELECT * FROM rubriki ORDER BY nazva
     <p class="oshibka"><?php echo htmlspecialchars($oshibka); ?></p>
 <?php } ?>
 
-<form method="POST" action="dobavit.php">
+<form class="forma-dobavit" method="POST" action="dobavit.php">
 
     <table>
         <tr>
@@ -105,6 +109,8 @@ $zapros_rubrik = mysqli_query($soedinenie, "SELECT * FROM rubriki ORDER BY nazva
     </table>
 
 </form>
+
+</div>
 
 </body>
 </html>
